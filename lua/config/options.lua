@@ -15,3 +15,18 @@ opt.expandtab = false   -- ปิดการแปลง Tab เป็น Space
 opt.tabstop = 4         -- กำหนดความกว้างของการแสดงผล 1 Tab ให้เท่ากับ 4 ช่อง
 opt.shiftwidth = 4      -- ระยะ Indent (ตอนกด >> หรือ <<) เท่ากับ 4 ช่อง
 opt.softtabstop = 4     -- เวลากด Backspace ลบ Tab ในครั้งเดียว
+
+vim.opt.clipboard = "unnamedplus"
+
+vim.g.clipboard = {
+  name = "xsel-clean-cr",
+  copy = {
+    ["+"] = { "xsel", "--nodetach", "-i", "-b" },
+    ["*"] = { "xsel", "--nodetach", "-i", "-p" },
+  },
+  paste = {
+    ["+"] = { "sh", "-c", "xsel -o -b | tr -d '\\r'" },
+    ["*"] = { "sh", "-c", "xsel -o -p | tr -d '\\r'" },
+  },
+  cache_enabled = 1,
+}
