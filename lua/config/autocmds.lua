@@ -6,3 +6,12 @@
 --
 -- Or remove existing autocmds by their group name (which is prefixed with `lazyvim_` for the defaults)
 -- e.g. vim.api.nvim_del_augroup_by_name("lazyvim_wrap_spell")
+
+vim.api.nvim_create_autocmd("FileType", {
+  group = vim.api.nvim_create_augroup("markdown_quiet", { clear = true }),
+  pattern = "markdown",
+  callback = function(event)
+    vim.opt_local.spell = false
+    vim.diagnostic.enable(false, { bufnr = event.buf })
+  end,
+})
