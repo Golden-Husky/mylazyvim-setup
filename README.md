@@ -52,7 +52,7 @@ nvim
 
 > **Clipboard:** config เดิมใช้ `xsel` สำหรับ X11 บน Wayland/WSL อาจต้องปรับ `lua/config/options.lua` ส่วน Docker ที่ไม่มี display อาจคัดลอก–วางข้ามโปรแกรมไม่ได้ แต่ยังทดสอบตัว editor ได้
 
-##5. ตรวจการติดตั้ง
+## 5. ตรวจการติดตั้ง
 
 กด `Esc` แล้วพิมพ์คำสั่งใน Neovim ตามด้วย `Enter`:
 
